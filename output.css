@@ -4,14 +4,38 @@
   box-sizing: border-box;
 }
 
-#map {
-  background-color: lightgray;
-}
-
 body {
   display: grid;
   grid-template-columns: 1fr 3fr;
   height: 100vh;
+}
+
+#map {
+  background-color: lightgray;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+  background: #221e22;
+  color: #c1c1d7;
+  border-radius: 5px;
+  padding-right: 0.5rem;
+}
+
+.leaflet-popup .leaflet-popup-content {
+  font-size: 1.75rem;
+  font-family: "Quintessential", cursive;
+}
+
+.leaflet-popup .leaflet-popup-tip {
+  background-color: #221e22;
+}
+
+.popup .leaflet-popup-content-wrapper {
+  border-left: 8px solid #457b9d;
+}
+
+.map-dark-theme {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
 
 #sideBar {
@@ -26,7 +50,9 @@ body {
 }
 #sideBar h3 {
   font-size: 4rem;
-  color: white;
+  color: #e5e9f0;
+  font-family: "Quintessential", cursive;
+  text-transform: uppercase;
 }
 #sideBar #icon {
   margin: 1rem;

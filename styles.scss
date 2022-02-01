@@ -3,20 +3,53 @@
     padding: 0;
     box-sizing: border-box;
 }
-#map {
-    background-color: lightgray;
-}
+
+$map-background-color: lightgray;
+$leaflet-background-color: #221e22;
+$leaflet-font-color: #c1c1d7;
+$leaflet-border-color: #457b9d;
+$map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.7);
+$sidebar-background-color: #221e22;
+$header-background-color: #000000;
+$header-font-style: "Quintessential", cursive;
+$sidebar-font-color: #e5e9f0;
+
 body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     height: 100vh;
 }
 
+#map {
+    background-color: $map-background-color;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+    background: $leaflet-background-color;
+    color: $leaflet-font-color;
+    border-radius: 5px;
+    padding-right: 0.5rem;
+}
+.leaflet-popup .leaflet-popup-content {
+    font-size: 1.75rem;
+    font-family: $header-font-style;
+}
+.leaflet-popup .leaflet-popup-tip {
+    background-color: $leaflet-background-color;
+}
+.popup .leaflet-popup-content-wrapper {
+    border-left: 8px solid $leaflet-border-color;
+}
+.map-dark-theme {
+    filter: $map-tiles-filter;
+}
+
 #sideBar {
-    background-color: #221e22;
+    background-color: $sidebar-background-color;
 
     header {
-        background-color: #000000;
+        background-color: $header-background-color;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -25,7 +58,9 @@ body {
 
     h3 {
         font-size: 4rem;
-        color: white;
+        color: $sidebar-font-color;
+        font-family: $header-font-style;
+        text-transform: uppercase;
     }
 
     #icon {
