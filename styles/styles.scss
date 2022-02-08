@@ -1,0 +1,178 @@
+$map-background-color: lightgray;
+$map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
+    saturate(0.3) brightness(0.7);
+
+$leaflet-background-color: #221e22;
+$leaflet-font-color: #c1c1d7;
+$leaflet-border-color: #457b9d;
+
+$sidebar-background-color: #221e22;
+$sidebar-font-color: #e5e9f0;
+
+$element-font-style: "Open Sans Condensed", sans-serif;
+$element-background-color: #2e2f38;
+
+$header-background-color: #000000;
+$header-font-style: "Quintessential", cursive;
+$transition: all 0.25s linear;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    height: 100vh;
+}
+
+.hidden {
+    display: none;
+}
+
+#map {
+    background-color: $map-background-color;
+}
+
+.leaflet-popup .leaflet-popup-content-wrapper {
+    background: $leaflet-background-color;
+    color: $leaflet-font-color;
+    border-radius: 5px;
+    padding-right: 0.5rem;
+}
+.leaflet-popup .leaflet-popup-content {
+    font-size: 1.75rem;
+    font-family: $header-font-style;
+}
+.leaflet-popup .leaflet-popup-tip {
+    background-color: $leaflet-background-color;
+}
+.popup {
+    border-left: 12px solid $leaflet-border-color;
+}
+.restaurant-popup {
+    border-left: 12px solid #d00000;
+}
+.park-popup {
+    border-left: 12px solid #b9fbc0;
+}
+.movie-popup {
+    border-left: 12px solid #fca311;
+}
+.party-popup {
+    border-left: 12px solid #9e0059;
+}
+.map-dark-theme {
+    filter: $map-tiles-filter;
+}
+
+#sideBar {
+    background-color: $sidebar-background-color;
+
+    header {
+        background-color: $header-background-color;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        font-size: 4rem;
+        color: $sidebar-font-color;
+        font-family: $header-font-style;
+        text-transform: uppercase;
+    }
+
+    #icon {
+        margin: 1rem;
+        height: 100px;
+        width: 100px;
+    }
+
+    #infoContainer {
+        .formDesign {
+            %input-design {
+                border-radius: 5px;
+                background-color: #84a59d;
+                color: black;
+                padding: 0 1rem;
+            }
+            form {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+                margin: 0.5rem;
+                padding: 0.75rem;
+                background-color: #001219;
+
+                h3 {
+                    font-family: $header-font-style;
+                    color: $sidebar-font-color;
+                }
+                input {
+                    @extend %input-design;
+                    &::placeholder {
+                        color: black;
+                        font-size: 1rem;
+                    }
+                }
+                select {
+                    @extend %input-design;
+                    border-radius: 5px;
+                    background-color: #84a59d;
+                    padding: 0 1rem;
+                    color: black;
+                }
+                button {
+                    padding: 0.5rem;
+                    border-radius: 10px;
+                    border: 10px solid black;
+
+                    &:hover {
+                        background: khaki;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+    }
+    .element {
+        display: grid;
+        background-color: $element-background-color;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 10px;
+        margin: 0.5rem;
+        padding: 1rem;
+        padding-bottom: 0.25rem;
+
+        %element-design {
+            font-family: $header-font-style;
+            color: $sidebar-font-color;
+            text-align: center;
+        }
+
+        h2 {
+            @extend %element-design;
+            text-transform: uppercase;
+            border-bottom: 2px solid whitesmoke;
+        }
+
+        h3 {
+            @extend %element-design;
+            font-family: $element-font-style;
+            letter-spacing: 1.5px;
+        }
+
+        .element-info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-content: center;
+            border-bottom: 2px solid whitesmoke;
+        }
+    }
+}
