@@ -10,7 +10,7 @@
 
     <!--* ---------- Importing of google fonts ----------- -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&family=Quintessential&display=swap');
     </style>
 
 
@@ -24,8 +24,10 @@
         crossorigin="" defer></script>
 
     <!-- linking of personal files -->
-    <link rel="stylesheet" href="output.css">
-    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="./styles/output.css">
+    <script src="./jsFiles/map.js" defer></script>
+    <script src="./jsFiles/activity.js" defer></script>
+    <script src="./jsFiles/index.js" defer></script>
 
 </head>
 
@@ -33,11 +35,41 @@
     <section id="sideBar">
         <header>
             <img id="icon" src="images/icon.jpg">
-            <h3> marklocs</h3>
+            <h1> marklocs</h1>
         </header>
+
+        <!-- --------- section containing the description form for inputs --------- -->
+        <section id="infoContainer">
+            <section class="formDesign hidden">
+                <form>
+                    <label for="places">
+                        <h3>Type of Place</h3>
+                    </label>
+
+                    <select name="places" id="placesDropDown">
+                        <option value="restaurant">Restaurant</option>
+                        <option value="park">Park</option>
+                        <option value="movieTheatre">Movie Theatre</option>
+                        <option value="partyPlace">Party Place</option>
+                    </select>
+
+                    <h3>Name</h3><input type="text" name="nameOfPlace" size="30" placeholder="Name of the place"
+                        required>
+                    <h3>Date visited</h3><input type="date" name="dateVisited" placeholder="Date visited" required>
+
+                    <h3>Distance</h3><input type="number" name="distanceFromHome" placeholder="Distance (metres)"
+                        required>
+                    <h3>Description of the place</h3><input type="text" name="description" size="40"
+                        placeholder="Description">
+                    <button id="submitBtn" type="submit">Add</button>
+                </form>
+            </section>
+        </section>
     </section>
     <!-- -------- the container of map ---------- -->
     <div id="map"></div>
+
+
 </body>
 
 </html>
